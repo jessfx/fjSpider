@@ -9,6 +9,8 @@ from scrapy_splash import SplashRequest
 
 from fjSpider.items.fang_items import *
 
+# 顺德小区房价信息
+
 
 class fangSpider(Spider):
     name = 'fang-GFsundeES'
@@ -19,7 +21,7 @@ class fangSpider(Spider):
             'fjSpider.pipelines.fang-pipelines.GFsundeESPipeline': 300,
         },
         # 渲染服务的url
-        'SPLASH_URL': 'http://192.168.99.100:8050',
+        'SPLASH_URL': ' ',
 
         # 下载器中间件
         'DOWNLOADER_MIDDLEWARES': {
@@ -42,6 +44,7 @@ class fangSpider(Spider):
         for i in range(1, 101):
             if self.flag:
                 break
+            # js解析用splash
             yield SplashRequest(url=self.url % i, callback=self.parse, args={'wait': 0.5, 'html': 1})
 
     def parse(self, response):

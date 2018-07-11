@@ -26,4 +26,3 @@ class GDSZESPipeline(object):
     def process_item(self, item, spider):
         spec = {'url': item['url']}
         GDSZES.update(spec, {'$set': item}, upsert=True)
-        return item

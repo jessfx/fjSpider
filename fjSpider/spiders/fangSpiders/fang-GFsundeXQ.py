@@ -10,6 +10,8 @@ from scrapy_splash import SplashRequest
 
 from fjSpider.items.fang_items import *
 
+# 顺德二手房房价信息
+
 
 class GFsundeXQSpider(Spider):
     name = 'fang-GFsundeXQ'
@@ -41,6 +43,7 @@ class GFsundeXQSpider(Spider):
 
     def start_requests(self):
         for i in range(1, 70):
+            # js解析用splash
             yield SplashRequest(self.url % i, callback=self.parse)
 
     def parse(self, response):

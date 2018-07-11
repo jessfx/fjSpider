@@ -52,5 +52,5 @@ class GFsundeXQ_fangItem(scrapy.Item):
 
 class GDSZES_fangItem(scrapy.Item):
     url = scrapy.Field()
-    price_total = scrapy.Field()
+    price_avg = scrapy.Field()
     location = scrapy.Field()
